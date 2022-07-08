@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- customize css link -->
+    <link rel="stylesheet" href="./assets/css/advance-calculator.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="d-flex">
+      <div>
+        <h1 class="text-center color">Advance Calculator</h1>
+        <div style="display: flex">
+          <input type="text" id="result-input" />
+
+          <div style="display: flex">
+            <h4 id="calculate-first-text"></h4>
+            <h4 id="operator-icon"></h4>
+            <h4 id="calculate-second-text"></h4>
+          </div>
+        </div>
+        <h2 id="output"></h2>
+        <div class="d-grid">
+          <button class="grid-item grid-item-1" id="seven">7</button>
+          <button class="grid-item grid-item-2" id="eight">8</button>
+          <button class="grid-item grid-item-3" id="nine">9</button>
+          <button class="grid-item grid-item-4" id="plus">+</button>
+          <button class="grid-item grid-item-5" id="square">^</button>
+          <button class="grid-item grid-item-6" id="cross">
+            <img src="./assets/img/svg/cross.svg" alt="cross" />
+          </button>
+          <button class="grid-item grid-item-7" id="four">4</button>
+          <button class="grid-item grid-item-8" id="five">5</button>
+          <button class="grid-item grid-item-9" id="six">6</button>
+          <button class="grid-item grid-item-10" id="minus">-</button>
+          <button class="grid-item grid-item-11" id="anynumber">1/X</button>
+          <button class="grid-item grid-item-12" id="clear">C</button>
+          <button class="grid-item grid-item-13" id="one">1</button>
+          <button class="grid-item grid-item-14" id="two">2</button>
+          <button class="grid-item grid-item-15" id="three">3</button>
+          <button class="grid-item grid-item-16" id="multiplication">*</button>
+          <button class="grid-item grid-item-17" id="percent">%</button>
+          <button class="grid-item grid-item-18 equal" id="equal">=</button>
+          <button class="grid-item grid-item-19" id="doublezero">00</button>
+          <button class="grid-item grid-item-20" id="zero">0</button>
+          <button class="grid-item grid-item-21" id="dot">.</button>
+          <button class="grid-item grid-item-22" id="divide">/</button>
+          <button class="grid-item grid-item-23" id="exclamation">!</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      // get id from buttons and assign in the initilize variabels
+      const oneNumber = document.getElementById("one");
+      const twoNumber = document.getElementById("two");
+      const threeNumber = document.getElementById("three");
+      const fourNumber = document.getElementById("four");
+      const fiveNumber = document.getElementById("five");
+      const sixNumber = document.getElementById("six");
+      const sevenNumber = document.getElementById("seven");
+      const eightNumber = document.getElementById("eight");
+      const nineNumber = document.getElementById("nine");
+      const zeroNumber = document.getElementById("zero");
+      const doublezeroNumber = document.getElementById("doublezero");
+      const dots = document.getElementById("dot");
+      const plusNumber = document.getElementById("plus");
+      const minusNumber = document.getElementById("minus");
+      const multiplicationNumber = document.getElementById("multiplication");
+      const divideNumber = document.getElementById("divide");
+      const exclamationNumber = document.getElementById("exclamation");
+      const anysNumber = document.getElementById("anynumber");
+      const percentNumber = document.getElementById("percent");
+      const squareNumber = document.getElementById("square");
+      const crossNumber = document.getElementById("cross");
+      const clearNumber = document.getElementById("clear");
+      const resultNumber = document.getElementById("equal");
+      const resultinput = document.getElementById("result-input");
+
+      // functioning of all variables on click
+      doublezeroNumber.addEventListener("click", function () {
+        resultinput.value += doublezeroNumber.innerHTML;
+      });
+      zeroNumber.addEventListener("click", function () {
+        resultinput.value += zeroNumber.innerHTML;
+      });
+      oneNumber.addEventListener("click", function () {
+        resultinput.value += oneNumber.innerHTML;
+      });
+      twoNumber.addEventListener("click", function () {
+        resultinput.value += twoNumber.innerHTML;
+      });
+      threeNumber.addEventListener("click", function () {
+        resultinput.value += threeNumber.innerHTML;
+      });
+      fourNumber.addEventListener("click", function () {
+        resultinput.value += fourNumber.innerHTML;
+      });
+      fiveNumber.addEventListener("click", function () {
+        resultinput.value += fiveNumber.innerHTML;
+      });
+      sixNumber.addEventListener("click", function () {
+        resultinput.value += sixNumber.innerHTML;
+      });
+      sevenNumber.addEventListener("click", function () {
+        resultinput.value += sevenNumber.innerHTML;
+      });
+      eightNumber.addEventListener("click", function () {
+        resultinput.value += eightNumber.innerHTML;
+      });
+      nineNumber.addEventListener("click", function () {
+        resultinput.value += nineNumber.innerHTML;
+      });
+      dots.addEventListener("click", function () {
+        resultinput.value += dots.innerHTML;
+      });
+      exclamationNumber.addEventListener("click", function () {
+        resultinput.value += exclamationNumber.innerHTML;
+      });
+      anysNumber.addEventListener("click", function () {
+        resultinput.value += anysNumber.innerHTML;
+      });
+      plusNumber.addEventListener("click", function () {
+        resultinput.value += plusNumber.innerHTML;
+      });
+      minusNumber.addEventListener("click", function () {
+        resultinput.value += minusNumber.innerHTML;
+      });
+      multiplicationNumber.addEventListener("click", function () {
+        resultinput.value += multiplicationNumber.innerHTML;
+      });
+      divideNumber.addEventListener("click", function () {
+        resultinput.value += divideNumber.innerHTML;
+      });
+      percentNumber.addEventListener("click", function () {
+        resultinput.value += percentNumber.innerHTML;
+      });
+      squareNumber.addEventListener("click", function () {
+        resultinput.value += squareNumber.innerHTML;
+      });
+
+      resultNumber.addEventListener("click", function () {
+        resultinput.value = eval(resultinput.value);
+      });
+      clearNumber.addEventListener("click", function () {
+        document.getElementById("result-input").value = " ";
+      });
+    </script>
+  </body>
+</html>

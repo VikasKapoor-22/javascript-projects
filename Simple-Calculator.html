@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple-Calculator</title>
+    <!-- customize css link -->
+    <link rel="stylesheet" href="./assets/css/simple-calculator.css" />
+  </head>
+  <body>
+    <div class="container d-flex">
+      <div>
+        <h1 class="simple-calculator">Simple Calculator</h1>
+        <div class="calculator-bg">
+          <div class="number-bg">
+            <div style="display: flex">
+              <h4 class="color" id="calculate-first-text"></h4>
+              <h4 class="color" id="operator-icon"></h4>
+              <h4 class="color" id="calculate-second-text"></h4>
+            </div>
+            <h2 class="color-2" id="output"></h2>
+          </div>
+          <input
+            id="first-value"
+            type="number"
+            placeholder="Enter first value"
+            class="first"
+          />
+          <input
+            id="second-value"
+            type="number"
+            placeholder="Enter second value"
+            class="second"
+          />
+          <!-- PLUS OPERATOR   -->
+          <button type="button" class="btn" id="plus-btn">
+            <img src="./assets/img/svg/plus.svg" alt="plus" />
+          </button>
+          <button type="button" class="btn" id="minus-btn">
+            <img src="./assets/img/svg/minus.svg" alt="minus" />
+          </button>
+          <button type="button" class="btn" id="multiplication-btn">
+            <img
+              src="./assets/img/svg/multiplication.svg"
+              alt="multiplication"
+            />
+          </button>
+
+          <button type="button" class="btn" id="divide-btn">
+            <img src="./assets/img/svg/divide.svg" alt="divide" />
+          </button>
+          <button type="button" class="clear" id="clear-btn">clear</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      // get id and assign in the initilize variabels
+      const getFirstValueInput = document.getElementById("first-value");
+      const getSecondValueInput = document.getElementById("second-value");
+      const plusbtn = document.getElementById("plus-btn");
+      const minusbtn = document.getElementById("minus-btn");
+      const multiplicationbtn = document.getElementById("multiplication-btn");
+      const dividebtn = document.getElementById("divide-btn");
+      const clearbtn = document.getElementById("clear-btn");
+      const outputElement = document.getElementById("output");
+      const operatoricon = document.getElementById("operator-icon");
+      const calculatesecondtext = document.getElementById(
+        "calculate-second-text"
+      );
+      const calculatefirsttext = document.getElementById(
+        "calculate-first-text"
+      );
+      // first input value change function
+      getFirstValueInput.addEventListener("change", function () {
+        calculatefirsttext.innerHTML = getFirstValueInput.value;
+      });
+      // second input value change function
+      getSecondValueInput.addEventListener("change", function () {
+        calculatesecondtext.innerHTML = getSecondValueInput.value;
+      });
+      // minus operation performe on click
+      minusbtn.addEventListener("click", function () {
+        operatoricon.innerHTML = "-";
+        let firstValue = Number(getFirstValueInput.value);
+        let secondValue = Number(getSecondValueInput.value);
+
+        const output = firstValue - secondValue;
+        outputElement.innerHTML = output;
+      });
+      // plus operation  performe onclick
+      plusbtn.addEventListener("click", function () {
+        operatoricon.innerHTML = "+";
+        let firstValue = Number(getFirstValueInput.value);
+        let secondValue = Number(getSecondValueInput.value);
+
+        const output = firstValue + secondValue;
+        outputElement.innerHTML = output;
+      });
+      // multiplcation operation performe onclick
+      multiplicationbtn.addEventListener("click", function () {
+        operatoricon.innerHTML = "*";
+        let firstValue = Number(getFirstValueInput.value);
+        let secondValue = Number(getSecondValueInput.value);
+
+        const output = firstValue * secondValue;
+        outputElement.innerHTML = output;
+      });
+      // divide operation performe on click
+      dividebtn.addEventListener("click", function () {
+        operatoricon.innerHTML = "/";
+        let firstValue = Number(getFirstValueInput.value);
+        let secondValue = Number(getSecondValueInput.value);
+
+        const output = firstValue / secondValue;
+        outputElement.innerHTML = output;
+      });
+      console.log(calculatesecondtext, "calculatesecondtext");
+      // clear button performe on clcik
+      clearbtn.addEventListener("click", () => {
+        getFirstValueInput.value = "";
+        getSecondValueInput.value = "";
+        getFirstValueInput.value = "";
+        outputElement.innerHTML = "";
+        operatoricon.innerHTML = "";
+        calculatefirsttext.innerHTML = "";
+        calculatesecondtext.innerHTML = "";
+      });
+    </script>
+  </body>
+</html>

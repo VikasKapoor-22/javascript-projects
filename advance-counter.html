@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- customize css link -->
+    <link rel="stylesheet" href="./assets/css/advance-coutner-app.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="d-flex">
+      <div class="">
+        <h1 class="text-center">Advance Counter App</h1>
+        <div class="counter_bg text-center">
+          <h1 id="add-num" type="text">0</h1>
+
+          <button id="add-one" class="add_one">Add one</button>
+          <button class="save" onclick="addnumber()">Save</button>
+          <h4 class="previous">Previous values...</h4>
+
+          <div id="list-arr" class="arr_num">10,20,15</div>
+        </div>
+      </div>
+    </section>
+    <script>
+      const arrnum = [];
+      let count = 0;
+
+      let getInputValue = document.getElementById("add-num");
+      let listarr = document.getElementById("list-arr");
+      let addOne = document.getElementById("add-one");
+      function addnumber() {
+        arrnum.push(count);
+        count = 0;
+        getInputValue.innerHTML = 0;
+        listarr.innerHTML =
+          "<ul class=d_flex>" +
+          arrnum
+            .map(function (item) {
+              return "<li>" + item + "</li>";
+            })
+            .join(",") +
+          "</ul>";
+      }
+
+      addOne.addEventListener("click", function () {
+        count++;
+        getInputValue.innerHTML = count;
+      });
+    </script>
+  </body>
+</html>

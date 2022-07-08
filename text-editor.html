@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text-Editor</title>
+    <!-- customize css link -->
+    <link rel="stylesheet" href="./assets/css/text-editor.css" />
+  </head>
+  <body>
+    <!-- text-editor section start -->
+    <section class="d_flex">
+      <div class="container">
+        <h1 class="fw_regular fs_lg text_grey text_center ff_inter mb_3">
+          Text Editor
+        </h1>
+        <div class="text_editor_bg">
+          <h1 id="sample_text">
+            This is sample text.
+          </h1>
+          <select name="multiplecolor" id="color" class="ff_inter text_grey input_width p_4 mt_3">
+            <option class="ff_inter">Select color</option>
+            <option value="red">red</option>
+            <option value="green" >green</option>
+            <option value="blue">blue</option>
+          </select></br>
+          <select name="multiplefontsize" id="font_size" class="ff_inter text_grey input_width p_4 mt_2">
+            <option class="ff_inter">Select font size</option>
+            <option value="20px">20px</option>
+            <option value="32px">32px</option>
+            <option value="36px">36px</option>
+          </select></br>
+          <select name="multipletextalign" id="text_align" class="ff_inter text_grey input_width p_4 mt_2">
+            <option class="ff_inter">Select alignment</option>
+            <option value="start">start</option>
+            <option value="end">end</option>
+            <option value="center">center</option>
+          </select></br>
+          <select name="multiplefontfamily" id="font_family" class="ff_inter text_grey input_width p_4 mt_2">
+            <option class="ff_inter">Select font family</option>
+            <option value="inter">inter</option>
+            <option value="poppins">poppins</option>
+            <option value="roboto">roboto</option>
+          </select></br>
+          <select name="multipletextstyle" id="text_style" class="ff_inter text_grey input_width p_4 mt_2">
+            <option>Select text decoration</option>
+            <option value="line-through" >line-through</option>
+            <option value="overline">overline</option>
+            <option value="underline">underline</option>
+          </select>
+          </br>
+          <select name="multiplefontweight" id="font_weight" class="ff_inter text_grey input_width p_4 mt_2">
+            <option>Select font weight</option>
+            <option value="400">400</option>
+            <option value="500">500</option>
+            <option value="700">700</option>
+          </select>
+        </div>
+      </div>
+    </section>
+    
+
+    <script>
+        // get ids and assign in the variables
+        const sampletext = document.getElementById("sample_text");
+        const colors = document.getElementById("color");
+        const fontsize = document.getElementById("font_size");
+        const textalign = document.getElementById("text_align");
+        const fontfamily = document.getElementById("font_family");
+        const textstyle = document.getElementById("text_style");
+        const fontweight = document.getElementById("font_weight");
+      
+
+
+        colors.addEventListener('change', function(e) {
+           sampletext.style.color = e.target.value;
+        })
+        fontsize.addEventListener('change', function(e) {
+            sampletext.style.fontSize = e.target.value;
+        })
+        textalign.addEventListener('change', function(e) {
+            sampletext.style.textAlign = e.target.value;
+        })
+        fontfamily.addEventListener('change', function(e) {
+            sampletext.style.fontFamily = e.target.value;
+        })
+        textstyle.addEventListener('change', function(e) {
+            sampletext.style.textDecoration = e.target.value;
+        })
+         fontweight.addEventListener('change', function(e) {
+            sampletext.style.fontWeight = e.target.value;
+         })
+    
+    </script>
+  </body>
+</html>

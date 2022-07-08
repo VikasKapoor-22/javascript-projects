@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabs</title>
+    <!-- customize css link -->
+    <link rel="stylesheet" href="./assets/css/tabs.css" />
+  </head>
+  <!-- tabs section start -->
+<section class="d-flex min-vh-100">
+    <div class="container">
+        <h1 class="fw_regular color_grey fs_lg text-center">Tabs</h1>
+        <div class="tabs-bg-shade main-tab">
+        <div >
+            <button class="fw_regular fs_sm color_grey tab" onclick="showpara(0)">Tab-1</button>
+             <button class="fw_regular fs_sm color_grey mx_3 tab" onclick="showpara(1)">Tab-2</button>
+              <button class="fw_regular fs_sm color_grey tab" onclick="showpara(2)">Tab-3</button>
+        </div>
+       
+        
+        <p class="ff_inter color_grey fs_sm fw_regular mt-3 para">Massa, at est sit laoreet. Pellentesque sed habitasse nulla leo arcu quam. Tincidunt magnis dis odio at. Viverra a, id amet massa metus eros. Sed donec scelerisque id neque, mauris id ultricies auctor dui. Auctor maecenas scelerisque eu orci viverra volutpat. In dui justo, metus dolor. Mauris nibh at diam ipsum sollicitudin lacus. Orci, egestas porta nulla sed. Arcu mauris id bibendum habitant hendrerit semper vel.</br></br>Massa, at est sit laoreet. Pellentesque sed habitasse nulla leo arcu quam. Tincidunt magnis dis odio at. Viverra a, id amet massa metus eros. Sed donec scelerisque id neque, mauris id ultricies auctor dui. Auctor maecenas scelerisque eu orci viverra volutpat. In dui justo, metus dolor. Mauris nibh at diam ipsum sollicitudin lacus. Orci, egestas porta nulla sed. Arcu mauris id bibendum habitant hendrerit semper vel.</p>
+         <p class="ff_inter color_grey fs_sm fw_regular mt-3 para">Massa, at est sit laoreet. Pellentesque sed habitasse nulla leo arcu quam. Tincidunt magnis dis odio at. Viverra a, id amet massa metus eros. Sed donec scelerisque id neque, mauris id ultricies auctor dui. Auctor maecenas scelerisque eu orci viverra hendrerit semper vel.</br></br>Massa, at est sit laoreet. Pellentesque sed habitasse nulla leo arcu quam. Tincidunt magnis dis odio at. Viverra a, id amet massa metus eros. Sed donec scelerisque id neque, mauris id ultricies auctor dui. Auctor maecenas scelerisque eu orci viverra volutpat. In dui justo, metus dolor. Mauris nibh at diam ipsum sollicitudin lacus. Orci, egestas porta nulla sed. Arcu mauris id bibendum habitant hendrerit semper vel.</p>
+          <p class="ff_inter color_grey fs_sm fw_regular mt-3 para">Massa, at est sit laoreet. Pellentesque sed habitasse nulla leo arcu quam. Tincidunt magnis dis odio at. Viverra a, id amet massa metus eros. Sed donec scelerisque id neque, mauris id ultricies auctor dui. Auctor maecenas scelerisque eu orci viverra volutpat. In dui justo, metus dolor. Mauris nibh at diam ipsum sollicitudin lacus. Orci, egestas porta nulla sed. Arcu mauris id bibendum habitant hendrerit semper vel.</br></br>Massa, at est sit laoreet. Pellentesque sed </p>
+        
+    </div>
+    </div>
+</section>
+
+<script>
+  const maintabs = document.querySelectorAll(".main-tab");
+  const tabs = document.querySelectorAll(".tab") ; 
+  const paragraph = document.querySelectorAll(".para");
+
+        function showpara(panelIndex) {
+            paragraph.forEach(function (node) {
+                node.style.display = "none";
+            })
+            tabs.forEach(function (node) {
+                node.style.borderBottom = "none";
+            })
+            paragraph[panelIndex].style.display = "block";
+            tabs[panelIndex].style.borderBottom = "1px solid blue";
+        }
+        showpara(0);
+
+</script>
+  </body>
+</html>

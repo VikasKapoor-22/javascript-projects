@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+.d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.simple-calculator {
+  font-family: "inter";
+  font-weight: 400;
+  font-size: 36px;
+  color: #808080;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.calculator-bg {
+  background: #ffffff;
+  box-shadow: 0px 11px 44px -10px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  /* width: 380px; */
+  padding: 15px;
+}
+.number-bg {
+  background: #fafafa;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding-left: 10px;
+  display: inline-block;
+  height: 97px;
+  width: 365px;
+}
+input {
+  padding-left: 10px;
+  width: 365px;
+  height: 50px;
+  color: #808080;
+  font-family: "inter";
+  display: block;
+}
+.first {
+  margin-top: 15px;
+}
+.second {
+  margin-top: 7px;
+}
+.color {
+  color: #000000;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  opacity: 0.3;
+}
+.color-2 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+}
+.btn {
+  padding: 7px 25px;
+  background: #ffffff;
+  box-shadow: 0px 11px 44px -10px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  border: 1px solid #128dff;
+  margin-top: 20px;
+}
+.clear {
+  background: linear-gradient(97.42deg, #128dff -4.95%, #1444ef 109.04%);
+  border-radius: 4px;
+  padding: 7px 35px;
+  border: none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  color: #ffffff;
+  margin-top: 20px;
+}

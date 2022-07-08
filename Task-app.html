@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- customize css link -->
+    <link rel="stylesheet" href="./assets/css/task-app.css" />
+    <title>Task-app</title>
+  </head>
+  <body>
+    <section class="d-flex align-item-center min-vh-100">
+      <div class="container">
+        <h1 class="text-center text-grey fw-regular fs-lg mb-2">Task</h1>
+        <div class="task-bg">
+          <div class="text-center bg-shade">
+            <input
+              id="new-task"
+              type="text"
+              placeholder="add your task here..."
+            />
+            <button class="text-white bg-blue" id="add-task">Add Task</button>
+          </div>
+          <h4 class="fw-regular fs-sm color-black p-3">Today’s tasks</h4>
+          <div id="task-list"></div>
+        </div>
+      </div>
+    </section>
+    <script>
+      let taskarray = [];
+      const newtask = document.querySelector("#new-task");
+      const addtask = document.querySelector("#add-task");
+      const tasklist = document.querySelector("#task-list");
+      const tasklistmain = document.querySelectorAll(".task-list-item");
+      const uncheckedcircle = document.querySelectorAll(".unchecked-circle");
+      const checkedcircle = document.querySelectorAll(".checked-circle");
+
+      addtask.addEventListener("click", function () {
+        const addtaskinputvalue = newtask.value;
+        console.log(addtaskinputvalue);
+        taskarray.push(addtaskinputvalue);
+        newtask.value = "";
+        printTasks();
+      });
+      function deleteTask(id) {
+        console.log(id);
+        const filterarray = taskarray.filter((item, index) => index !== id);
+        taskarray = filterarray;
+        printTasks();
+      }
+
+      function printTasks() {
+        tasklist.innerHTML = taskarray
+          .map(function (item, index) {
+            return `<div class="bg-shade m_top task-list-item">
+              <div class="d-flex justify-content-between">
+                <h4 class="fw-regular fs-sm color-black">
+                  ${item}
+                </h4>
+                <div>
+                  <img   class="checked-circle d-none"
+                    src="./assets/img/svg/blue-check-circle.svg"
+                    alt="check-circle"
+                  />
+                  <img onclick={completeTask(${index})} class="unchecked-circle"
+                    src="./assets/img/svg/check-circle.svg"
+                    alt="check-circle"
+                  />
+                  <img onclick={deleteTask(${index})} class="delete-icon"
+                    src="./assets/img/svg/delete-icon.svg"
+                    alt="delete-icon"
+                  />
+                </div>
+              </div>
+            </div>`;
+          })
+          .join(" ");
+      }
+
+      function completeTask(id) {
+        console.log(id);
+        for (let i = 0; i < taskarray.length; i++) {
+          if (i === id) {
+            console.log(
+              tasklist.children[i].classList.toggle("d-block"),
+              "tasklist"
+            );
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

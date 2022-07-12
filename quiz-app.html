@@ -13,26 +13,8 @@
       <div class="container">
         <h1 class="text-grey fw-regular fs-lg text-center my-5">Quiz App</h1>
         <div class="quiz-bg-shade p-3">
-          <h1 class="fw-medium fs-sm text-black">
-            Q.1 Accumsan tincidunt ornare adipiscing gravida pharetra,
-            adipiscing?
-          </h1>
-          <div class="d-flex align-item-center option-border p-3 mt-4">
-            <img src="./assets/img/svg/check-circle.svg" alt="check-circle" />
-            <h3 class="fw-regular fs-sm text-primary ms-3">Option-1</h3>
-          </div>
-          <div class="d-flex align-item-center option-border p-3 mt-3">
-            <img src="./assets/img/svg/check-circle.svg" alt="check-circle" />
-            <h3 class="fw-regular fs-sm text-primary ms-3">Option-2</h3>
-          </div>
-          <div class="d-flex align-item-center option-border p-3 mt-3">
-            <img src="./assets/img/svg/check-circle.svg" alt="check-circle" />
-            <h3 class="fw-regular fs-sm text-primary ms-3">Option-3</h3>
-          </div>
-          <div class="d-flex align-item-center option-border p-3 mt-3">
-            <img src="./assets/img/svg/check-circle.svg" alt="check-circle" />
-            <h3 class="fw-regular fs-sm text-primary ms-3">Option-4</h3>
-          </div>
+          <div id="quiz-main"></div>
+
           <div class="mt-4">
             <button class="fw-semi-bold fs-sm text-white next-btn">Next</button>
             <button class="fw-semi-bold fs-sm text-blue previous-btn">
@@ -47,7 +29,11 @@
         <h1 class="text-grey fw-regular fs-lg text-center my-5">Quiz App</h1>
         <div class="quiz-bg-shade p-3 mb-5">
           <div class="text-center">
-            <img src="./assets/img/png/quiz-app.png" alt="quiz-app" />
+            <img
+              class="w-100"
+              src="./assets/img/png/quiz-app.png"
+              alt="quiz-app"
+            />
           </div>
           <h3 class="fw-regular fs-lg text-black text-center">0/10</h3>
           <h3 class="fw-regular fs-sm text-black text-center my_4">
@@ -61,5 +47,58 @@
         </div>
       </div>
     </section>
+
+    <script>
+      //  get our elements from dom
+      const questiontext = document.getElementById("question-text");
+      const answerlist = document.getElementById("answer-list");
+      const quizmain = document.getElementById("quiz-main");
+
+      const quizquestions = [
+        {
+          questiontext: "what is the capital of india?",
+          answerlist: ["delhi", "chandigarh", "new-delhi", "rotang"],
+          answer: "new-delhi",
+        },
+        {
+          questiontext: "what is the capital of haryana?",
+          answerlist: ["amritsar", "chandigarh", "ambala", "rotang"],
+          answer: "chandigarh",
+        },
+        {
+          questiontext: "How many days are in September?",
+          answerlist: ["28", "29", "30", "31"],
+          answer: "30",
+        },
+      ];
+      console.log(quizquestions, "quizquestions");
+
+      function printQuestion() {
+        quizmain.innerHTML = quizquestions
+          .map(function (item, index) {
+            return `<div> <h1 class="fw-medium fs-sm text-black" id="question-text">
+              
+             ${item.questiontext}
+            </h1>
+            <div id="answer-list">
+             ${item.answerlist
+               .map((answer, index) => {
+                 return `<div class="d-flex align-item-center option-border p-3 mt-4">
+                <img
+                  src="./assets/img/svg/check-circle.svg"
+                  alt="check-circle"
+                />
+                
+                <h3 class="fw-regular fs-sm text-primary ms-3">${answer}</h3>
+              </div>`;
+               })
+               .join(" ")}          
+            </div> 
+            </div>`;
+          })
+          .join(" ");
+      }
+      printQuestion();
+    </script>
   </body>
 </html>

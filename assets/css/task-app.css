@@ -89,7 +89,14 @@ input {
   display: none;
 }
 
-.complete-task {
-  background-color: red;
-  color: wheat;
+.complete-task .unchecked-circle {
+  display: none;
+}
+.complete-task .checked-circle {
+  display: block;
+}
+
+.complete-task h4 {
+  text-decoration: line-through;
+  opacity: 0.6;
 }

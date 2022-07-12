@@ -37,10 +37,12 @@
 
       addtask.addEventListener("click", function () {
         const addtaskinputvalue = newtask.value;
-        console.log(addtaskinputvalue);
-        taskarray.push(addtaskinputvalue);
-        newtask.value = "";
-        printTasks();
+        if (addtaskinputvalue.length > 0) {
+          console.log(addtaskinputvalue);
+          taskarray.push(addtaskinputvalue);
+          newtask.value = "";
+          printTasks();
+        }
       });
       function deleteTask(id) {
         console.log(id);
@@ -52,17 +54,17 @@
       function printTasks() {
         tasklist.innerHTML = taskarray
           .map(function (item, index) {
-            return `<div class="bg-shade m_top task-list-item">
+            return `<div class="bg-shade m_top task-list-item" onclick={completeTask(${index})}>
               <div class="d-flex justify-content-between">
                 <h4 class="fw-regular fs-sm color-black">
                   ${item}
                 </h4>
-                <div>
+                <div class="d-flex ">
                   <img   class="checked-circle d-none"
                     src="./assets/img/svg/blue-check-circle.svg"
                     alt="check-circle"
                   />
-                  <img onclick={completeTask(${index})} class="unchecked-circle"
+                  <img  class="unchecked-circle"
                     src="./assets/img/svg/check-circle.svg"
                     alt="check-circle"
                   />
@@ -82,7 +84,7 @@
         for (let i = 0; i < taskarray.length; i++) {
           if (i === id) {
             console.log(
-              tasklist.children[i].classList.toggle("d-block"),
+              tasklist.children[i].classList.toggle("complete-task"),
               "tasklist"
             );
           }

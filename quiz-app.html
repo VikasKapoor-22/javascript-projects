@@ -16,8 +16,16 @@
           <div id="quiz-main"></div>
 
           <div class="mt-4">
-            <button class="fw-semi-bold fs-sm text-white next-btn">Next</button>
-            <button class="fw-semi-bold fs-sm text-blue previous-btn">
+            <button
+              class="fw-semi-bold fs-sm text-white next-btn"
+              onclick="handleNext()"
+            >
+              Next
+            </button>
+            <button
+              class="fw-semi-bold fs-sm text-blue previous-btn"
+              onclick="handlePrevious()"
+            >
               Previous
             </button>
           </div>
@@ -49,11 +57,15 @@
     </section>
 
     <script>
+      let state = {
+        currentSlide: 0,
+      };
       //  get our elements from dom
       const questiontext = document.getElementById("question-text");
       const answerlist = document.getElementById("answer-list");
       const quizmain = document.getElementById("quiz-main");
 
+      //arrays
       const quizquestions = [
         {
           questiontext: "what is the capital of india?",
@@ -70,35 +82,58 @@
           answerlist: ["28", "29", "30", "31"],
           answer: "30",
         },
+        {
+          questiontext: "How many days are in February?",
+          answerlist: ["28", "29", "30", "31"],
+          answer: "28",
+        },
       ];
       console.log(quizquestions, "quizquestions");
-
+      // create function
       function printQuestion() {
         quizmain.innerHTML = quizquestions
+          .slice(state.currentSlide, state.currentSlide + 1)
           .map(function (item, index) {
             return `<div> <h1 class="fw-medium fs-sm text-black" id="question-text">
-              
+
              ${item.questiontext}
             </h1>
             <div id="answer-list">
              ${item.answerlist
                .map((answer, index) => {
-                 return `<div class="d-flex align-item-center option-border p-3 mt-4">
+                 return `<div class="d-flex align-item-center option-border p-3 mt-4" onclick={handleoptionselect(${index})}>
                 <img
                   src="./assets/img/svg/check-circle.svg"
                   alt="check-circle"
                 />
-                
+
                 <h3 class="fw-regular fs-sm text-primary ms-3">${answer}</h3>
               </div>`;
                })
-               .join(" ")}          
-            </div> 
+               .join(" ")}
+            </div>
             </div>`;
           })
           .join(" ");
       }
       printQuestion();
+
+      function handleNext() {
+        if (state.currentSlide < quizquestions.length - 1) {
+          state.currentSlide += 1;
+          printQuestion();
+        }
+      }
+
+      function handlePrevious() {
+        if (state.currentSlide > 0) {
+          state.currentSlide -= 1;
+          printQuestion();
+        }
+      }
+      function handleoptionselect(options) {
+        console.log(options);
+      }
     </script>
   </body>
 </html>
